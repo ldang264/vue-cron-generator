@@ -23,7 +23,8 @@ export default {
     reverse: '反向解析',
     reset: '重置',
     tagError: '表达式不正确',
-    numError: '含有非法数字'
+    numError: '含有非法数字',
+    use: '使用'
   },
   custom: {
     unspecified: '不固定',

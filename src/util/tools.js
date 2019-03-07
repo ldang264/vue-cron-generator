@@ -6,4 +6,9 @@ export const
   },
   isNumber = (str) => {
     return new RegExp(NUMBER).test(str)
+  },
+  getLocale = () => {
+    return (localStorage.getItem('locale') ||
+      sessionStorage.getItem('locale') ||
+      (navigator.systemLanguage ? navigator.systemLanguage : navigator.language)).replace('-', '_')
   }

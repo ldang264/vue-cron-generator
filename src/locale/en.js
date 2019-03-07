@@ -23,7 +23,8 @@ export default {
     reverse: 'Reverse',
     reset: 'Reset',
     tagError: 'Tag Error ',
-    numError: 'Number Error '
+    numError: 'Number Error ',
+    use: 'Use'
   },
   custom: {
     unspecified: 'Unspecified',

@@ -4,6 +4,7 @@ import elementEnLocale from 'element-ui/lib/locale/lang/en'
 import elementZhCNLocale from 'element-ui/lib/locale/lang/zh-CN'
 import enLocale from './en'
 import zhCNLocale from './zh-CN'
+import { getLocale } from '../util/tools'
 
 Vue.use(VueI18n)
 
@@ -21,9 +22,7 @@ const messages = {
   i18n = new VueI18n({
   // set locale
   // options: en | zh
-    locale: (localStorage.getItem('locale') ||
-    sessionStorage.getItem('locale') ||
-    (navigator.systemLanguage ? navigator.systemLanguage : navigator.language)).replace('-', '_'),
+    locale: getLocale(),
     // set locale messages
     messages
   })

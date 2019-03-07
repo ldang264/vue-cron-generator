@@ -82,6 +82,30 @@
         </el-tab-pane>
         <el-tab-pane name="8">
           <span slot="label">{{ $t('common.help') }}</span>
+          <div class="cell-div">
+            <span style="margin-right: 10px;">
+              <el-button :disabled="!sample || sample.length < 7" :size="size" type="primary" @click="expression = sample; reverse()">{{ $t('common.use') }}</el-button>
+            </span>
+            <el-select
+              v-model="sample"
+              :size="size"
+              :placeholder="$t('common.placeholder')"
+              :filter-method="filterCase"
+              style="min-width: 320px;"
+              filterable>
+              <el-option
+                v-for="item in cases"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                <span style="float: left">{{ item.label }}</span>
+                <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
+              </el-option>
+            </el-select>
+            <span style="margin-left: 5px;">
+              {{ sample }}
+            </span>
+          </div>
           <div v-for="(item, index) in timeUnits" :key="index">
             {{ item }}:{{ $t('common.valTip') }}<strong>{{ vals[index] }}</strong>
             {{ $t('common.symbolTip') }}<strong>{{ symbols[index] }}</strong>
@@ -101,6 +125,7 @@ import Month from './time/month'
 import Year from './time/year'
 import DayOfWeek from './time/dayOfWeek'
 import { EMPTY, EVERY, UNFIXED, BASE_SYMBOL, DAY_OF_MONTH_SYMBOL, DAY_OF_WEEK_SYMBOL } from '../constant/filed'
+import { loadArray } from '../translate'
 
 export default {
   components: {
@@ -115,7 +140,7 @@ export default {
   props: {
     defaultExpression: {
       type: String,
-      default: '0 0 0 * * ?'
+      default: '* * * * * ?'
     },
     size: {
       type: String,
@@ -157,7 +182,10 @@ export default {
       ],
       symbols: [
         BASE_SYMBOL, BASE_SYMBOL, BASE_SYMBOL, DAY_OF_MONTH_SYMBOL, BASE_SYMBOL, DAY_OF_WEEK_SYMBOL, BASE_SYMBOL
-      ]
+      ],
+      sample: '',
+      cases: [],
+      bakCases: []
     }
   },
   computed: {
@@ -197,8 +225,7 @@ export default {
   },
   created() {
     this.reset()
-    // 0 15 10 ? * 3L
-    // 0 15 10 ? * 2-3
+    this.loadConst()
   },
   methods: {
     reverse() {
@@ -228,6 +255,27 @@ export default {
     },
     changeYear(tag) {
       this.year.tag = tag
+    },
+    filterCase(query) {
+      if (query !== '') {
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+          this.cases = this.bakCases.filter(item => {
+            return item.label.toLowerCase()
+              .indexOf(query.toLowerCase()) !== -1 ||
+            item.value.toLowerCase()
+              .indexOf(query.toLowerCase()) !== -1
+          })
+        }, 100)
+      } else {
+        this.cases = this.bakCases
+      }
+    },
+    loadConst() {
+      loadArray().then(array => {
+        this.bakCases = this.cases = array.cases
+      })
     }
   }
 }

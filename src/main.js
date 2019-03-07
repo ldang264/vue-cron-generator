@@ -3,7 +3,7 @@ import App from './App.vue'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import i18n from './locale' // Internationalization
-import './styles/global.scss' // global css
+import './styles/global.less' // global css
 // import * as Field from './constant/filed'
 
 // Vue.prototype.Field = Field

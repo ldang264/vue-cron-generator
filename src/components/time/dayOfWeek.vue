@@ -164,7 +164,6 @@ export default {
               this.$refs.unfixeds.type_ =
                 this.$refs.lasts.type_ =
                   this.$refs.weekDays.type_ = type
-      console.log(type)
     },
     resolveCustom(val) {
       for (let i = 0; i < DAYS_OF_WEEK.length; i++) {
