@@ -19,12 +19,13 @@ export default {
     placeholder: '请选择',
     placeholderMulti: '请选择(支持多选)',
     help: '帮助',
-    wordNumError: '格式不正确，需有6或7个字符',
+    wordNumError: '格式不正确，必须有6或7位',
     reverse: '反向解析',
     reset: '重置',
     tagError: '表达式不正确',
     numError: '含有非法数字',
-    use: '使用'
+    use: '使用',
+    inputPlaceholder: 'Cron表达式'
   },
   custom: {
     unspecified: '不固定',
@@ -85,9 +86,6 @@ export default {
     nthError: '天数格式不符'
   },
   app: {
-    title: '基于Vue&Element-ui实现的Cron表达式生成器',
-    input: {
-      placeholder: 'Cron表达式'
-    }
+    title: '基于Vue&Element-ui实现的Cron表达式生成器'
   }
 }

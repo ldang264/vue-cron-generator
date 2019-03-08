@@ -11,6 +11,7 @@
       ref="periods"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :time-unit="timeUnit"
       :start-config="startConfig"
       :cycle-config="cycleConfig"
@@ -20,6 +21,7 @@
       ref="ranges"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :time-unit="timeUnit"
       :lower-config="lowerConfig"
       :upper-config="upperConfig"
@@ -29,6 +31,7 @@
       ref="fixeds"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :time-unit="timeUnit"
       :nums="nums"
       @type-changed="changeType"
@@ -59,6 +62,10 @@ export default {
     tag: {
       type: String,
       default: EVERY
+    },
+    size: {
+      type: String,
+      default: 'mini'
     }
   },
   data() {

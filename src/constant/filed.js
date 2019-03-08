@@ -24,4 +24,6 @@ export const
   // current year like 2019
   CUR_YEAR = new Date().getFullYear(),
   //
-  UPPER_LIMIT_YEAR = 2099
+  UPPER_LIMIT_YEAR = 2099,
+  // default cron expression
+  DEFAULT_CRON_EXPRESSION = '0 0 12 * * ?'

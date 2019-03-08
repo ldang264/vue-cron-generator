@@ -1,6 +1,6 @@
 <template>
   <div class="cell-div">
-    <el-radio v-model="type_" label="range" @change="change">
+    <el-radio v-model="type_" :label="label" @change="change">
       <span class="cell-symbol">{{ tag_ }}</span>
       {{ $t('common.between') }}
       <el-select

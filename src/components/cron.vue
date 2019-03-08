@@ -1,38 +1,27 @@
 <template>
   <div>
     <el-row class="cron-row">
-      <el-col :span="16">
-        <el-input ref="input8" v-model="expression" :size="size" @focus="activeTabName='8'"/>
-      </el-col>
-      <el-col :span="4" :offset="1">
-        <el-button :size="size" type="primary" @click="reverse">{{ $t('common.reverse') }}</el-button>
-      </el-col>
-      <el-col :span="3">
-        <el-button :size="size" type="info" @click="reset">{{ $t('common.reset') }}</el-button>
-      </el-col>
-    </el-row>
-    <el-row class="cron-row">
       <el-row :gutter="2">
         <el-col :span="3">
-          <el-input ref="input1" v-model="second.tag" :size="size" @focus="activeTabName='1'"/>
+          <el-input ref="input1" v-model="tag.second" :size="size" @focus="activeTabName='1'"/>
         </el-col>
         <el-col :span="4">
-          <el-input ref="input2" v-model="minute.tag" :size="size" @focus="activeTabName='2'"/>
+          <el-input ref="input2" v-model="tag.minute" :size="size" @focus="activeTabName='2'"/>
         </el-col>
         <el-col :span="4">
-          <el-input ref="input3" v-model="hour.tag" :size="size" @focus="activeTabName='3'"/>
+          <el-input ref="input3" v-model="tag.hour" :size="size" @focus="activeTabName='3'"/>
         </el-col>
         <el-col :span="4">
-          <el-input ref="input4" v-model="dayOfMonth.tag" :size="size" @focus="activeTabName='4'"/>
+          <el-input ref="input4" v-model="tag.dayOfMonth" :size="size" @focus="activeTabName='4'"/>
         </el-col>
         <el-col :span="3">
-          <el-input ref="input5" v-model="month.tag" :size="size" @focus="activeTabName='5'"/>
+          <el-input ref="input5" v-model="tag.month" :size="size" @focus="activeTabName='5'"/>
         </el-col>
         <el-col :span="3">
-          <el-input ref="input6" v-model="dayOfWeek.tag" :size="size" @focus="activeTabName='6'"/>
+          <el-input ref="input6" v-model="tag.dayOfWeek" :size="size" @focus="activeTabName='6'"/>
         </el-col>
         <el-col :span="3">
-          <el-input ref="input7" v-model="year.tag" :size="size" @focus="activeTabName='7'"/>
+          <el-input ref="input7" v-model="tag.year" :size="size" @focus="activeTabName='7'"/>
         </el-col>
       </el-row>
     </el-row>
@@ -41,50 +30,57 @@
         <el-tab-pane name="1">
           <span slot="label">{{ $t('second.title') }}</span>
           <second
-            :tag="second.tag"
+            :tag="tag.second"
+            :size="size"
             @second-change="changeSecond"/>
         </el-tab-pane>
         <el-tab-pane name="2">
           <span slot="label">{{ $t('minute.title') }}</span>
           <minute
-            :tag="minute.tag"
+            :tag="tag.minute"
+            :size="size"
             @minute-change="changeMinute"/>
         </el-tab-pane>
         <el-tab-pane name="3">
           <span slot="label">{{ $t('hour.title') }}</span>
           <hour
-            :tag="hour.tag"
+            :tag="tag.hour"
+            :size="size"
             @hour-change="changeHour"/>
         </el-tab-pane>
         <el-tab-pane name="4">
           <span slot="label">{{ $t('dayOfMonth.title') }}</span>
           <day-of-month
-            :tag="dayOfMonth.tag"
+            :tag="tag.dayOfMonth"
+            :size="size"
             @day-of-month-change="changeDayOfMonth"/>
         </el-tab-pane>
         <el-tab-pane name="5">
           <span slot="label">{{ $t('month.title') }}</span>
           <month
-            :tag="month.tag"
+            :tag="tag.month"
+            :size="size"
             @month-change="changeMonth"/>
         </el-tab-pane>
         <el-tab-pane name="6">
           <span slot="label">{{ $t('dayOfWeek.title') }}</span>
           <day-of-week
-            :tag="dayOfWeek.tag"
+            :tag="tag.dayOfWeek"
+            :size="size"
             @day-of-week-change="changeDayOfWeek"/>
         </el-tab-pane>
         <el-tab-pane name="7">
           <span slot="label">{{ $t('year.title') }}</span>
           <year
-            :tag="year.tag"
+            :tag="tag.year"
+            :size="size"
             @year-change="changeYear"/>
         </el-tab-pane>
         <el-tab-pane name="8">
           <span slot="label">{{ $t('common.help') }}</span>
           <div class="cell-div">
             <span style="margin-right: 10px;">
-              <el-button :disabled="!sample || sample.length < 7" :size="size" type="primary" @click="expression = sample; reverse()">{{ $t('common.use') }}</el-button>
+              <el-button :disabled="!sample || sample.trim().length < 11" :size="size" type="primary" @click="changeTime(sample)">{{ $t('common.use') }}</el-button>
             </span>
             <el-select
               v-model="sample"
@@ -124,10 +120,19 @@ import DayOfMonth from './time/dayOfMonth'
 import Month from './time/month'
 import Year from './time/year'
 import DayOfWeek from './time/dayOfWeek'
-import { EMPTY, EVERY, UNFIXED, BASE_SYMBOL, DAY_OF_MONTH_SYMBOL, DAY_OF_WEEK_SYMBOL } from '../constant/filed'
+import {
+  EMPTY,
+  EVERY,
+  UNFIXED,
+  BASE_SYMBOL,
+  DAY_OF_MONTH_SYMBOL,
+  DAY_OF_WEEK_SYMBOL,
+  DEFAULT_CRON_EXPRESSION
+} from '../constant/filed'
 import { loadArray } from '../translate'
 
 export default {
+  name: 'Cron',
   components: {
     DayOfWeek,
     Year,
@@ -138,9 +143,9 @@ export default {
     Second
   },
   props: {
-    defaultExpression: {
+    value: {
       type: String,
-      default: '* * * * * ?'
+      default: DEFAULT_CRON_EXPRESSION
     },
     size: {
       type: String,
@@ -149,27 +154,14 @@ export default {
   },
   data() {
     return {
-      expression: this.defaultExpression,
-      second: {
-        tag: EVERY
-      },
-      minute: {
-        tag: EVERY
-      },
-      hour: {
-        tag: EVERY
-      },
-      dayOfMonth: {
-        tag: EVERY
-      },
-      month: {
-        tag: EVERY
-      },
-      dayOfWeek: {
-        tag: UNFIXED
-      },
-      year: {
-        tag: EMPTY
+      tag: {
+        second: EVERY,
+        minute: EVERY,
+        hour: EVERY,
+        dayOfMonth: EVERY,
+        month: EVERY,
+        dayOfWeek: UNFIXED,
+        year: EMPTY
       },
       activeTabName: '1',
       timeUnits: [
@@ -188,73 +180,71 @@ export default {
       bakCases: []
     }
   },
-  computed: {
-    expression_: {
-      get() {
-        return (this.second.tag + ' ' + this.minute.tag + ' ' + this.hour.tag + ' ' + this.dayOfMonth.tag + ' ' +
-          this.month.tag + ' ' + this.dayOfWeek.tag + ' ' + this.year.tag).trim()
-      },
-      set(newValue) {
-        if (!newValue || newValue.trim().length === 0) {
-          return
-        }
-        const arr = newValue.trim().split(' ')
-        if (arr.length !== 6 && arr.length !== 7) {
-          this.$message.error(this.$t('common.wordNumError'))
-        }
-        this.second.tag = arr[0]
-        this.minute.tag = arr[1]
-        this.hour.tag = arr[2]
-        this.dayOfMonth.tag = arr[3]
-        this.month.tag = arr[4]
-        this.dayOfWeek.tag = arr[5]
-        this.year.tag = arr.length === 7 ? arr[6] : ''
-      }
-    }
-  },
   watch: {
-    expression_(val) {
-      this.expression = val
+    value(val) {
+      this.changeTime(val)
     },
     activeTabName(val) {
       const input_ = this.$refs['input' + val]
       if (input_) {
         input_.focus()
       }
+    },
+    tag: {
+      handler(curVal, oldVal) {
+        this.changeCron()
+      },
+      deep: true
     }
   },
   created() {
-    this.reset()
     this.loadConst()
+    this.changeTime(this.value)
   },
   methods: {
-    reverse() {
-      this.expression_ = this.expression
-    },
-    reset() {
-      this.expression = this.defaultExpression
-      this.reverse()
-    },
     changeSecond(tag) {
-      this.second.tag = tag
+      this.tag.second = tag
     },
     changeMinute(tag) {
-      this.minute.tag = tag
+      this.tag.minute = tag
     },
     changeHour(tag) {
-      this.hour.tag = tag
+      this.tag.hour = tag
     },
     changeDayOfMonth(tag) {
-      this.dayOfMonth.tag = tag
+      this.tag.dayOfMonth = tag
     },
     changeMonth(tag) {
-      this.month.tag = tag
+      this.tag.month = tag
     },
     changeDayOfWeek(tag) {
-      this.dayOfWeek.tag = tag
+      this.tag.dayOfWeek = tag
     },
     changeYear(tag) {
-      this.year.tag = tag
+      this.tag.year = tag
+    },
+    changeCron() {
+      const cron = (this.tag.second + ' ' + this.tag.minute + ' ' + this.tag.hour + ' ' + this.tag.dayOfMonth + ' ' +
+          this.tag.month + ' ' + this.tag.dayOfWeek + ' ' + this.tag.year).trim()
+      this.$emit('change', cron)
+    },
+    changeTime(newValue) {
+      if (!newValue || newValue.trim().length < 11) {
+        this.$message.error(this.$t('common.wordNumError'))
+        return
+      }
+      const arr = newValue.trim().split(' ')
+      if (arr.length !== 6 && arr.length !== 7) {
+        this.$message.error(this.$t('common.wordNumError'))
+        return
+      }
+      this.tag.second = arr[0]
+      this.tag.minute = arr[1]
+      this.tag.hour = arr[2]
+      this.tag.dayOfMonth = arr[3]
+      this.tag.month = arr[4]
+      this.tag.dayOfWeek = arr[5]
+      this.tag.year = arr.length === 7 ? arr[6] : ''
     },
     filterCase(query) {
       if (query !== '') {

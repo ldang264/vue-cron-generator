@@ -6,8 +6,10 @@ export default {
       this.resolveTag(val)
     }
   },
-  mounted() {
+  created() {
     this.initNums()
+  },
+  mounted() {
     this.resolveTag(this.tag)
   },
   methods: {

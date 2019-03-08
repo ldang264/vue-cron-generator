@@ -97,20 +97,30 @@ export default {
     }
   },
   watch: {
-    'numArray'(val) {
+    'numArray'(curVal, oldVal) {
       let labelLength = 0
       this.nums.forEach(num => {
-        if (val.indexOf(num.value) !== -1) {
+        if (curVal.indexOf(num.value) !== -1) {
           labelLength += num.label.length
         }
       })
       this.collapsed = (labelLength > 6)
+    },
+    type_(curVal, oldVal) {
+      if (curVal === FIXED) {
+        this.protectNumArray()
+      }
     }
   },
   methods: {
     change() {
       this.$emit('type-changed', this.type_)
       this.$emit('tag-changed', this.tag_)
+    },
+    protectNumArray() {
+      if (this.numArray.length === 0) {
+        this.numArray.push(this.nums[0].value)
+      }
     }
   }
 }

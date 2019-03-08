@@ -24,7 +24,8 @@ export default {
     reset: 'Reset',
     tagError: 'Tag Error ',
     numError: 'Number Error ',
-    use: 'Use'
+    use: 'Use',
+    inputPlaceholder: 'Cron Expression'
   },
   custom: {
     unspecified: 'Unspecified',
@@ -85,9 +86,6 @@ export default {
     nthError: 'The Day in Week is Error'
   },
   app: {
-    title: 'Cron Generator Implemented by Vue.js and Element-ui',
-    input: {
-      placeholder: 'Cron Expression'
-    }
+    title: 'Cron Generator Implemented by Vue.js and Element-ui'
   }
 }

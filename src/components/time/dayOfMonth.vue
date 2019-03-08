@@ -12,6 +12,7 @@
       ref="periods"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :time-unit="timeUnit"
       :start-config="startConfig"
       :cycle-config="cycleConfig"
@@ -21,6 +22,7 @@
       ref="ranges"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :time-unit="timeUnit"
       :lower-config="lowerConfig"
       :upper-config="upperConfig"
@@ -30,6 +32,7 @@
       ref="fixeds"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :time-unit="timeUnit"
       :nums="nums"
       @type-changed="changeType"
@@ -44,6 +47,7 @@
       ref="lasts"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :last-config="lastConfig"
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
@@ -53,6 +57,7 @@
       ref="workDays"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :start-date-config="startDateConfig"
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
@@ -62,6 +67,7 @@
       ref="lastWorkDays"
       :type="type_"
       :tag="tag_"
+      :size="size"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
       @tag-changed="changeTag"/>
@@ -99,6 +105,10 @@ export default {
     tag: {
       type: String,
       default: EVERY
+    },
+    size: {
+      type: String,
+      default: 'mini'
     }
   },
   data() {

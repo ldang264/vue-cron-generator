@@ -2,32 +2,34 @@
   <div id="app">
     <h2>{{ $t('app.title') }}</h2>
     <el-row>
-      <el-col :span="4" :offset="8">
-        <el-popover v-model="visible">
-          <cron/>
-          <el-input slot="reference" v-model="cron" :placeholder="$t('app.input.placeholder')" size="mini"/>
-        </el-popover>
+      <el-col :span="6" :offset="9">
+        <cron-input v-model="cron" @change="change" @reset="reset"/>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
-import cron from './components/cron'
+import CronInput from './components/cron-input'
+import { DEFAULT_CRON_EXPRESSION } from './constant/filed'
+
 export default {
   name: 'App',
   components: {
-    cron
+    CronInput
   },
   data() {
     return {
-      visible: false,
-      cron: ''
+      cron: DEFAULT_CRON_EXPRESSION
     }
   },
-  created() {
-    // localStorage.locale = 'en'
-    // localStorage.locale = 'zh-CN'
+  methods: {
+    change(cron) {
+      this.cron = cron
+    },
+    reset(cron) {
+      this.cron = DEFAULT_CRON_EXPRESSION
+    }
   }
 }
 </script>

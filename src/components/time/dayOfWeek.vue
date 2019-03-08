@@ -13,6 +13,7 @@
       :type="type_"
       :tag="tag_"
       :nums="nums"
+      :size="size"
       :time-unit="timeUnit"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
@@ -22,6 +23,7 @@
       :type="type_"
       :tag="tag_"
       :nums="nums"
+      :size="size"
       :time-unit="timeUnit"
       @type-changed="changeType"
       @tag-changed="changeTag"/>
@@ -30,6 +32,7 @@
       :type="type_"
       :tag="tag_"
       :nums="nums"
+      :size="size"
       @type-changed="changeType"
       @tag-changed="changeTag"/>
     <unfixed
@@ -43,6 +46,7 @@
       :type="type_"
       :tag="tag_"
       :nums="nums"
+      :size="size"
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
@@ -52,6 +56,7 @@
       :type="type_"
       :tag="tag_"
       :nums="nums"
+      :size="size"
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
@@ -69,6 +74,7 @@ import Range from '../config/custom/dayOfWeek/range'
 import Last from '../config/custom/dayOfWeek/last'
 import WeekDay from '../config/custom/dayOfWeek/weekDay'
 import watchTime from '../../mixins/watchTime'
+import { loadArray } from '../../translate'
 
 // 31 days
 const LENGTH = 7, LOWER_LIMIT = 1, STEP = 1
@@ -132,19 +138,11 @@ export default {
     }
   },
   methods: {
-    // 7 days like [ {label: '1', value: 1}...{label: '7', value: 7} ]
+    // 7 days like [ {label: 'Sunday', value: 1}...{label: 'Saturday', value: 7} ]
     initNums() {
-      const WEEK_DAYS = [
-        this.$t('dayOfWeek.SUN'), this.$t('dayOfWeek.MON'), this.$t('dayOfWeek.TUE'), this.$t('dayOfWeek.WED'),
-        this.$t('dayOfWeek.THU'), this.$t('dayOfWeek.FRI'), this.$t('dayOfWeek.SAT')
-      ]
-      for (let i = 1; i <= LENGTH; i++) {
-        const item = {
-          label: WEEK_DAYS[i - 1],
-          value: i
-        }
-        this.nums.push(item)
-      }
+      loadArray().then(array => {
+        this.nums = array.daysOfWeek
+      })
     },
     // change type
     changeType(type) {
