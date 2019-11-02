@@ -49,7 +49,7 @@ export default {
   },
   dayOfMonth: {
     timeUnit: '日',
-    title: '月内日',
+    title: '月',
     val: '1 2...31'
   },
   month: {
@@ -58,7 +58,7 @@ export default {
   },
   dayOfWeek: {
     timeUnit: '日',
-    title: '周内日',
+    title: '周',
     val: '1 2...7或星期的缩写(SUN ... SAT)',
     SUN: '星期天',
     MON: '星期一',
