@@ -2,7 +2,7 @@
 
 > a project using vue,element-ui to generate cron expression
 
-![预览](https://raw.github.com/ldang264/vue-cron-generator/tree/master/resources/snapshot.png)
+![预览](https://raw.githubusercontent.com/ldang264/vue-cron-generator/master/resources/snapshot.png)
 
 ## Build Setup
 
