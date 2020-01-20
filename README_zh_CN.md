@@ -4,7 +4,7 @@
 
 > 一个基于Vue&Element-UI构建的在线Cron表达式生成器
 
-![预览](https://raw.githubusercontent.com/ldang264/vue-cron-generator/master/resources/snapshot.png)
+![预览](https://gitee.com/ldang264/vue-cron-generator/raw/master/resources/snapshot.png)
 
 ## 使用(例子代码)
 - 下载依赖
