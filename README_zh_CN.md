@@ -4,6 +4,7 @@
 
 👉 [Attemper: 分布式多租户的支持流程编排的任务调度平台(用之作为cron表达式生成器)](https://github.com/attemper/attemper)
 
+[在线demo](https://ldang264.github.io/vue-cron-generator/dist/index.html)  
 ![预览](https://gitee.com/ldang264/vue-cron-generator/raw/master/resources/snapshot_zh_CN.png)
 
 ## 使用(例子代码)
