@@ -4,7 +4,7 @@
 
 > a project using vue,element-ui to generate cron expression
 
-![Preview](https://raw.githubusercontent.com/ldang264/vue-cron-generator/master/resources/snapshot.png)
+![Preview](https://gitee.com/ldang264/vue-cron-generator/raw/master/resources/snapshot.png)
 
 ## Use(Example)
 - Install dependency
