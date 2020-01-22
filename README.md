@@ -1,12 +1,12 @@
 # vue-cron-generator
 
-> a project using vue,element-ui to generate cron expression [中文](./README_zh_CN.md)
+> a project using vue,element-ui to generate cron expression [中文](./README_zh_CN.md) [Online demo](https://ldang264.github.io/vue-cron-generator/dist/index.html)  
 
->👉 Attemper: A distributed,multi-tenancy,job-flow scheduling application using it 👈
->>[Github](https://github.com/attemper/attemper)
+**Used by**
+>👉 Attemper: A distributed,multi-tenancy,job-flow scheduling application 👈
+>>[Github](https://github.com/attemper/attemper)  
 >>[Gitee](https://gitee.com/attemper/attemper)
 
-[Online demo](https://ldang264.github.io/vue-cron-generator/dist/index.html)  
 ![Preview](https://gitee.com/ldang264/vue-cron-generator/raw/master/resources/snapshot.png)
 
 ## Use(Example)
