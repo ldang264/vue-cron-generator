@@ -2,8 +2,17 @@
   <div id="app">
     <h2>{{ $t('app.title') }}</h2>
     <el-row>
-      <el-col :span="6" :offset="9">
-        <cron-input v-model="cron" @change="change" @reset="reset"/>
+      <el-col :span="6" :offset="5">
+        <el-select v-model="size" :size="size">
+          <el-option
+            v-for="value in sizes"
+            :key="value"
+            :label="value"
+            :value="value"/>
+        </el-select>
+      </el-col>
+      <el-col :span="6" :offset="1">
+        <cron-input v-model="cron" :size="size" @change="change" @reset="reset"/>
       </el-col>
     </el-row>
   </div>
@@ -20,7 +29,13 @@ export default {
   },
   data() {
     return {
-      cron: DEFAULT_CRON_EXPRESSION
+      cron: DEFAULT_CRON_EXPRESSION,
+      size: 'mini',
+      sizes: [
+        'mini',
+        'small',
+        'medium'
+      ]
     }
   },
   methods: {
