@@ -8,7 +8,7 @@ export const
     return new RegExp(NUMBER).test(str)
   },
   getLocale = () => {
-    return (localStorage.getItem('locale') ||
-      sessionStorage.getItem('locale') ||
-      (navigator.systemLanguage ? navigator.systemLanguage : navigator.language)).replace('-', '_')
+    const lang = localStorage.getItem('locale') || sessionStorage.getItem('locale') || (navigator.systemLanguage ? navigator.systemLanguage : navigator.language),
+      index = lang.indexOf('-')
+    return lang.substring(0, index) + '_' + lang.substring(index + 1).toUpperCase()
   }

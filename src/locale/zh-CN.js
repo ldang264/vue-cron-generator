@@ -49,7 +49,7 @@ export default {
   },
   dayOfMonth: {
     timeUnit: '日',
-    title: '月',
+    title: '日',
     val: '1 2...31'
   },
   month: {
