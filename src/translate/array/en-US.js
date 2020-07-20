@@ -29,11 +29,11 @@ export const cases = [
     },
     {
       label: 'Every Monday at noon',
-      value: '0 0 12 * * MON'
+      value: '0 0 12 ? * MON'
     },
     {
       label: 'Every Weekday at noon',
-      value: '0 0 12 * * MON-FRI'
+      value: '0 0 12 ? * MON-FRI'
     },
     {
       label: 'Every 4 days staring on the 1st of the month, at noon',

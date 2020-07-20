@@ -29,11 +29,11 @@ export const cases = [
     },
     {
       label: '每周一12点',
-      value: '0 0 12 * * MON'
+      value: '0 0 12 ? * MON'
     },
     {
       label: '每周一至周五12点',
-      value: '0 0 12 * * MON-FRI'
+      value: '0 0 12 ? * MON-FRI'
     },
     {
       label: '每月1号开始每隔4天的中午12点',
