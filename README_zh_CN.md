@@ -10,7 +10,7 @@
 ![预览](https://gitee.com/ldang264/vue-cron-generator/raw/master/resources/snapshot_zh_CN.png)
 
 ## 使用(例子代码)
-- 下载依赖
+- 下载依赖([npm](https://www.npmjs.com/package/vue-cron-generator))
 ``` bash
 npm install vue-cron-generator
 ```

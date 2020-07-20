@@ -10,7 +10,7 @@
 ![Preview](https://gitee.com/ldang264/vue-cron-generator/raw/master/resources/snapshot.png)
 
 ## Use(Example)
-- Install dependency
+- Install dependency([npm](https://www.npmjs.com/package/vue-cron-generator))
 ``` bash
 npm install vue-cron-generator
 ```
