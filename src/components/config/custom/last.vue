@@ -62,12 +62,12 @@ export default {
           this.lastNum = 1
           return
         }
-        const num = newValue.substring(2, newValue.length - 1)
-        if (!isNumber(num) || parseInt(num) < this.lastConfig.min - 1 || parseInt(num) > this.lastConfig.max - 1) {
-          this.$message.error(this.$t('common.numError') + ':' + num)
+        const numStr = newValue.substring(2)
+        if (!isNumber(numStr) || parseInt(numStr) < this.lastConfig.min - 1 || parseInt(numStr) > this.lastConfig.max - 1) {
+          this.$message.error(this.$t('common.numError') + ':' + numStr)
           return
         }
-        this.lastNum = num + 1
+        this.lastNum = parseInt(numStr) + 1
       }
     }
   },
