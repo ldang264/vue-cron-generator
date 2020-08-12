@@ -15,6 +15,7 @@
       :nums="nums"
       :size="size"
       :time-unit="timeUnit"
+      :start-config="startConfig"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
       @tag-changed="changeTag"/>
