@@ -7,6 +7,7 @@
         v-model="start"
         :size="size"
         :placeholder="$t('common.placeholder')"
+        :disabled="type_ !== label"
         style="width: 100px;"
         filterable>
         <el-option
@@ -16,7 +17,7 @@
           :value="item.value"/>
       </el-select>
       {{ $t('common.start') }}{{ $t('common.every') }}
-      <el-input-number v-model="cycle" :precision="0" :min="cycleConfig.min" :step="cycleConfig.step" :max="cycleConfig.max" :size="size"/>
+      <el-input-number v-model="cycle" :precision="0" :min="cycleConfig.min" :step="cycleConfig.step" :max="cycleConfig.max" :size="size" :disabled="type_ !== label"/>
       {{ timeUnit }}
     </el-radio>
   </div>

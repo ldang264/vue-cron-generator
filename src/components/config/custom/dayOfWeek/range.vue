@@ -7,6 +7,7 @@
         v-model="lower"
         :size="size"
         :placeholder="$t('common.placeholder')"
+        :disabled="type_ !== label"
         style="width: 100px;"
         filterable>
         <el-option
@@ -21,6 +22,7 @@
         v-model="upper"
         :size="size"
         :placeholder="$t('common.placeholder')"
+        :disabled="type_ !== label"
         style="width: 100px;"
         filterable>
         <el-option

@@ -11,6 +11,7 @@
         :collapse-tags="collapsed"
         :size="size"
         :placeholder="$t('common.placeholderMulti')"
+        :disabled="type_ !== label"
         filterable
         multiple
         style="width: 100%;">

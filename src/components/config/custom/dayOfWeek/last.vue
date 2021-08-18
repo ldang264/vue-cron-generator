@@ -7,6 +7,7 @@
         v-model="lastNum"
         :size="size"
         :placeholder="$t('common.placeholder')"
+        :disabled="type_ !== label"
         filterable>
         <el-option
           v-for="item in nums"
