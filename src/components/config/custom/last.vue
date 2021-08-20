@@ -3,16 +3,16 @@
     <el-radio v-model="type_" :label="label" @change="change">
       <span class="cell-symbol">{{ tag_ }}</span>
       {{ $t('common.current') }}{{ targetTimeUnit }}{{ $t('custom.lastTh') }}
-      <el-input-number v-model="lastNum" :precision="0" :min="lastConfig.min" :step="lastConfig.step" :max="lastConfig.max" :size="size" :disabled="type_ !== label"/>
+      <el-input-number v-model="lastNum" :precision="0" :min="lastConfig.min" :step="lastConfig.step" :max="lastConfig.max" :size="size" :disabled="type_ !== label" />
       {{ timeUnit }}
     </el-radio>
   </div>
 </template>
 
 <script>
-import { LAST } from '../../../constant/filed'
-import watchValue from '../../../mixins/watchValue'
-import { isNumber } from '../../../util/tools'
+import { LAST } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

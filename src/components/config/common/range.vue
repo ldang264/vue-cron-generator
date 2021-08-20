@@ -3,18 +3,18 @@
     <el-radio v-model="type_" :label="label" @change="change">
       <span class="cell-symbol">{{ tag_ }}</span>
       {{ $t('common.between') }}
-      <el-input-number v-model="lower" :precision="0" :min="lowerConfig.min" :step="lowerConfig.step" :max="upper_" :size="size" :disabled="type_ !== label"/>
+      <el-input-number v-model="lower" :precision="0" :min="lowerConfig.min" :step="lowerConfig.step" :max="upper_" :size="size" :disabled="type_ !== label" />
       {{ timeUnit }}{{ $t('common.and') }}
-      <el-input-number v-model="upper_" :precision="0" :min="lower" :step="upperConfig.step" :max="upperConfig.max" :size="size" :disabled="type_ !== label"/>
+      <el-input-number v-model="upper_" :precision="0" :min="lower" :step="upperConfig.step" :max="upperConfig.max" :size="size" :disabled="type_ !== label" />
       {{ $t('common.end') }}{{ $t('common.every') }}{{ timeUnit }}
     </el-radio>
   </div>
 </template>
 
 <script>
-import { RANGE } from '../../../constant/filed'
-import watchValue from '../../../mixins/watchValue'
-import { isNumber } from '../../../util/tools'
+import { RANGE } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

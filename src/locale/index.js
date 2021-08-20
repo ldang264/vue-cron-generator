@@ -4,7 +4,7 @@ import elementEnLocale from 'element-ui/lib/locale/lang/en'
 import elementZhCNLocale from 'element-ui/lib/locale/lang/zh-CN'
 import enUSLocale from './en-US'
 import zhCNLocale from './zh-CN'
-import { getLocale } from '../util/tools'
+import { getLocale } from '@/util/tools'
 
 Vue.use(VueI18n)
 

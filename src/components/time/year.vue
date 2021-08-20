@@ -6,7 +6,8 @@
       :tag="tag_"
       :time-unit="timeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <period
       ref="periods"
       :type="type_"
@@ -16,7 +17,8 @@
       :start-config="startConfig"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <range
       ref="ranges"
       :type="type_"
@@ -27,7 +29,8 @@
       :upper-config="upperConfig"
       :upper="upper"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <fixed
       ref="fixeds"
       :type="type_"
@@ -36,13 +39,15 @@
       :time-unit="timeUnit"
       :nums="nums"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <empty
       ref="emptys"
       :type="type_"
       :tag="tag_"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
   </el-row>
 </template>
 
@@ -52,8 +57,8 @@ import Period from '../config/common/period'
 import Range from '../config/common/range'
 import Fixed from '../config/common/fixed'
 import Empty from '../config/custom/year/empty'
-import { BASE_SYMBOL, CUR_YEAR, EMPTY, UPPER_LIMIT_YEAR } from '../../constant/filed'
-import watchTime from '../../mixins/watchTime'
+import { BASE_SYMBOL, CUR_YEAR, EMPTY, UPPER_LIMIT_YEAR } from '@/constant/filed'
+import watchTime from '@/mixins/watchTime'
 
 // 2099 years
 const LOWER_LIMIT = CUR_YEAR, LENGTH = UPPER_LIMIT_YEAR, STEP = 1

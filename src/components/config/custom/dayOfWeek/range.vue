@@ -9,13 +9,15 @@
         :placeholder="$t('common.placeholder')"
         :disabled="type_ !== label"
         style="width: 100px;"
-        filterable>
+        filterable
+      >
         <el-option
           v-for="item in nums"
           :key="item.value"
           :label="item.label"
           :value="item.value"
-          :disabled="item.value>upper"/>
+          :disabled="item.value>upper"
+        />
       </el-select>
       {{ $t('common.and') }}
       <el-select
@@ -24,13 +26,15 @@
         :placeholder="$t('common.placeholder')"
         :disabled="type_ !== label"
         style="width: 100px;"
-        filterable>
+        filterable
+      >
         <el-option
           v-for="item in nums"
           :key="item.value"
           :label="item.label"
           :value="item.value"
-          :disabled="item.value<lower"/>
+          :disabled="item.value<lower"
+        />
       </el-select>
       {{ $t('common.end') }}{{ $t('common.every') }}{{ timeUnit }}
     </el-radio>
@@ -38,9 +42,9 @@
 </template>
 
 <script>
-import { RANGE } from '../../../../constant/filed'
-import watchValue from '../../../../mixins/watchValue'
-import { isNumber } from '../../../../util/tools'
+import { RANGE } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

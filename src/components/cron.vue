@@ -3,25 +3,25 @@
     <el-row class="cron-row">
       <el-row :gutter="2">
         <el-col :span="3">
-          <el-input ref="input1" v-model="tag.second" :size="size" @focus="activeTabName='1'"/>
+          <el-input ref="input1" v-model="tag.second" :size="size" @focus="activeTabName='1'" />
         </el-col>
         <el-col :span="4">
-          <el-input ref="input2" v-model="tag.minute" :size="size" @focus="activeTabName='2'"/>
+          <el-input ref="input2" v-model="tag.minute" :size="size" @focus="activeTabName='2'" />
         </el-col>
         <el-col :span="4">
-          <el-input ref="input3" v-model="tag.hour" :size="size" @focus="activeTabName='3'"/>
+          <el-input ref="input3" v-model="tag.hour" :size="size" @focus="activeTabName='3'" />
         </el-col>
         <el-col :span="4">
-          <el-input ref="input4" v-model="tag.dayOfMonth" :size="size" @focus="activeTabName='4'"/>
+          <el-input ref="input4" v-model="tag.dayOfMonth" :size="size" @focus="activeTabName='4'" />
         </el-col>
         <el-col :span="3">
-          <el-input ref="input5" v-model="tag.month" :size="size" @focus="activeTabName='5'"/>
+          <el-input ref="input5" v-model="tag.month" :size="size" @focus="activeTabName='5'" />
         </el-col>
         <el-col :span="3">
-          <el-input ref="input6" v-model="tag.dayOfWeek" :size="size" @focus="activeTabName='6'"/>
+          <el-input ref="input6" v-model="tag.dayOfWeek" :size="size" @focus="activeTabName='6'" />
         </el-col>
         <el-col :span="3">
-          <el-input ref="input7" v-model="tag.year" :size="size" @focus="activeTabName='7'"/>
+          <el-input ref="input7" v-model="tag.year" :size="size" @focus="activeTabName='7'" />
         </el-col>
       </el-row>
     </el-row>
@@ -32,49 +32,56 @@
           <second
             :tag="tag.second"
             :size="size"
-            @second-change="changeSecond"/>
+            @second-change="changeSecond"
+          />
         </el-tab-pane>
         <el-tab-pane name="2">
           <span slot="label">{{ $t('minute.title') }}</span>
           <minute
             :tag="tag.minute"
             :size="size"
-            @minute-change="changeMinute"/>
+            @minute-change="changeMinute"
+          />
         </el-tab-pane>
         <el-tab-pane name="3">
           <span slot="label">{{ $t('hour.title') }}</span>
           <hour
             :tag="tag.hour"
             :size="size"
-            @hour-change="changeHour"/>
+            @hour-change="changeHour"
+          />
         </el-tab-pane>
         <el-tab-pane name="4">
           <span slot="label">{{ $t('dayOfMonth.title') }}</span>
           <day-of-month
             :tag="tag.dayOfMonth"
             :size="size"
-            @day-of-month-change="changeDayOfMonth"/>
+            @day-of-month-change="changeDayOfMonth"
+          />
         </el-tab-pane>
         <el-tab-pane name="5">
           <span slot="label">{{ $t('month.title') }}</span>
           <month
             :tag="tag.month"
             :size="size"
-            @month-change="changeMonth"/>
+            @month-change="changeMonth"
+          />
         </el-tab-pane>
         <el-tab-pane name="6">
           <span slot="label">{{ $t('dayOfWeek.title') }}</span>
           <day-of-week
             :tag="tag.dayOfWeek"
             :size="size"
-            @day-of-week-change="changeDayOfWeek"/>
+            @day-of-week-change="changeDayOfWeek"
+          />
         </el-tab-pane>
         <el-tab-pane name="7">
           <span slot="label">{{ $t('year.title') }}</span>
           <year
             :tag="tag.year"
             :size="size"
-            @year-change="changeYear"/>
+            @year-change="changeYear"
+          />
         </el-tab-pane>
         <el-tab-pane name="8">
           <span slot="label">{{ $t('common.help') }}</span>
@@ -88,12 +95,14 @@
               :placeholder="$t('common.placeholder')"
               :filter-method="filterCase"
               style="min-width: 320px;"
-              filterable>
+              filterable
+            >
               <el-option
                 v-for="item in cases"
                 :key="item.value"
                 :label="item.label"
-                :value="item.value">
+                :value="item.value"
+              >
                 <span style="float: left">{{ item.label }}</span>
                 <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
               </el-option>
@@ -120,6 +129,8 @@ import DayOfMonth from './time/dayOfMonth'
 import Month from './time/month'
 import Year from './time/year'
 import DayOfWeek from './time/dayOfWeek'
+import { getLocale } from '@/util/tools'
+
 import {
   EMPTY,
   EVERY,
@@ -128,8 +139,7 @@ import {
   DAY_OF_MONTH_SYMBOL,
   DAY_OF_WEEK_SYMBOL,
   DEFAULT_CRON_EXPRESSION
-} from '../constant/filed'
-import { loadArray } from '../translate'
+} from '@/constant/filed'
 
 export default {
   name: 'Cron',
@@ -263,8 +273,8 @@ export default {
       }
     },
     loadConst() {
-      loadArray().then(array => {
-        this.bakCases = this.cases = array.cases
+      import('@/translate/dict.js').then(array => {
+        this.bakCases = this.cases = array['cases_' + getLocale()]
       })
     }
   }

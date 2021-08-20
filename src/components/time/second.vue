@@ -6,7 +6,8 @@
       :tag="tag_"
       :time-unit="timeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <period
       ref="periods"
       :type="type_"
@@ -16,7 +17,8 @@
       :start-config="startConfig"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <range
       ref="ranges"
       :type="type_"
@@ -26,7 +28,8 @@
       :lower-config="lowerConfig"
       :upper-config="upperConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <fixed
       ref="fixeds"
       :type="type_"
@@ -35,7 +38,8 @@
       :time-unit="timeUnit"
       :nums="nums"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
   </el-row>
 </template>
 
@@ -44,8 +48,8 @@ import Every from '../config/common/every'
 import Period from '../config/common/period'
 import Range from '../config/common/range'
 import Fixed from '../config/common/fixed'
-import { EVERY, BASE_SYMBOL } from '../../constant/filed'
-import watchTime from '../../mixins/watchTime'
+import { EVERY, BASE_SYMBOL } from '@/constant/filed'
+import watchTime from '@/mixins/watchTime'
 
 // 60 seconds
 const LENGTH = 60, LOWER_LIMIT = 0, STEP = 1

@@ -8,21 +8,23 @@
         :size="size"
         :placeholder="$t('common.placeholder')"
         :disabled="type_ !== label"
-        filterable>
+        filterable
+      >
         <el-option
           v-for="item in nums"
           :key="item.value"
           :label="item.label"
-          :value="item.value"/>
+          :value="item.value"
+        />
       </el-select>
     </el-radio>
   </div>
 </template>
 
 <script>
-import { LAST } from '../../../../constant/filed'
-import watchValue from '../../../../mixins/watchValue'
-import { isNumber } from '../../../../util/tools'
+import { LAST } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

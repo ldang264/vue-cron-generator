@@ -2,7 +2,9 @@
   <div class="cell-div">
     <el-radio v-model="type_" :label="label" @change="change">
       <el-tooltip effect="dark" placement="top">
-        <div slot="content">{{ tag_ }}</div>
+        <div slot="content">
+          {{ tag_ }}
+        </div>
         <span class="cell-symbol">,</span>
       </el-tooltip>
       {{ $t('common.specified') }}
@@ -14,12 +16,14 @@
         :disabled="type_ !== label"
         filterable
         multiple
-        style="width: 100%;">
+        style="width: 100%;"
+      >
         <el-option
           v-for="item in nums"
           :key="item.value"
           :label="item.label"
-          :value="item.value"/>
+          :value="item.value"
+        />
       </el-select>
       {{ timeUnit }}
     </el-radio>
@@ -27,10 +31,10 @@
 </template>
 
 <script>
-import { sortNum } from '../../../util/tools'
-import { FIXED } from '../../../constant/filed'
-import watchValue from '../../../mixins/watchValue'
-import { isNumber } from '../../../util/tools'
+import { sortNum } from '@/util/tools'
+import { FIXED } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

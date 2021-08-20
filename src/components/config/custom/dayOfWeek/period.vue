@@ -9,24 +9,26 @@
         :placeholder="$t('common.placeholder')"
         :disabled="type_ !== label"
         style="width: 100px;"
-        filterable>
+        filterable
+      >
         <el-option
           v-for="item in nums"
           :key="item.value"
           :label="item.label"
-          :value="item.value"/>
+          :value="item.value"
+        />
       </el-select>
       {{ $t('common.start') }}{{ $t('common.every') }}
-      <el-input-number v-model="cycle" :precision="0" :min="cycleConfig.min" :step="cycleConfig.step" :max="cycleConfig.max" :size="size" :disabled="type_ !== label"/>
+      <el-input-number v-model="cycle" :precision="0" :min="cycleConfig.min" :step="cycleConfig.step" :max="cycleConfig.max" :size="size" :disabled="type_ !== label" />
       {{ timeUnit }}
     </el-radio>
   </div>
 </template>
 
 <script>
-import { PERIOD } from '../../../../constant/filed'
-import watchValue from '../../../../mixins/watchValue'
-import { isNumber } from '../../../../util/tools'
+import { PERIOD } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

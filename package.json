@@ -9,6 +9,7 @@
     "dev": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e"
   },
@@ -30,9 +31,11 @@
     "crontab"
   ],
   "dependencies": {
-    "element-ui": "2.5.4",
-    "vue": "2.5.11",
-    "vue-i18n": "8.8.2"
+    "axios": "0.21.1",
+    "core-js": "3.6.5",
+    "element-ui": "2.13.2",
+    "vue": "2.6.11",
+    "vue-i18n": "8.15.3"
   },
   "browserslist": [
     "> 1%",
@@ -40,17 +43,18 @@
     "not ie <= 8"
   ],
   "devDependencies": {
-    "@vue/cli-plugin-babel": "3.0.1",
-    "@vue/cli-plugin-eslint": "3.0.1",
-    "@vue/cli-plugin-unit-mocha": "3.0.1",
-    "@vue/cli-service": "3.0.1",
-    "@vue/eslint-config-standard": "3.0.0-beta.10",
-    "@vue/test-utils": "1.0.0-beta.10",
-    "chai": "4.1.2",
-    "eslint-plugin-cypress": "2.0.1",
+    "@vue/cli-plugin-babel": "4.4.4",
+    "@vue/cli-plugin-eslint": "4.4.4",
+    "@vue/cli-plugin-unit-jest": "4.4.4",
+    "@vue/cli-service": "4.4.4",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "10.1.0",
+    "babel-plugin-dynamic-import-node": "2.3.3",
+    "eslint": "6.7.2",
+    "eslint-plugin-vue": "6.2.2",
     "less": "2.7.3",
-    "less-loader": "4.0.5",
-    "lint-staged": "6.0.0",
-    "vue-template-compiler": "2.5.11"
+    "less-loader": "4.1.0",
+    "lint-staged": "8.1.5",
+    "vue-template-compiler": "2.6.11"
   }
 }

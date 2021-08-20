@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-popover v-model="visible">
-      <cron v-model="cron_" :size="size" @change="change"/>
+      <cron v-model="cron_" :size="size" @change="change" />
       <el-input slot="reference" v-model="cron_" :placeholder="$t('common.inputPlaceholder')" :size="size">
-        <el-button slot="append" icon="el-icon-refresh" @click="reset"/>
+        <el-button slot="append" icon="el-icon-refresh" @click="reset" />
       </el-input>
     </el-popover>
   </div>

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { EVERY } from '../../../constant/filed'
-import watchValue from '../../../mixins/watchValue'
+import { EVERY } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
 
 export default {
   mixins: [watchValue],

@@ -1,4 +1,4 @@
-import { EMPTY, EVERY, FIXED, LAST, LAST_WORK_DAY, PERIOD, RANGE, UNFIXED, WEEK_DAY, WORK_DAY } from '../constant/filed'
+import { EMPTY, EVERY, FIXED, LAST, LAST_WORK_DAY, PERIOD, RANGE, UNFIXED, WEEK_DAY, WORK_DAY } from '@/constant/filed'
 
 export default {
   watch: {
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     resolveTag(val) {
-      if (val == null || val === undefined) {
+      if (val == null) {
         val = EMPTY
       }
       let temp = null

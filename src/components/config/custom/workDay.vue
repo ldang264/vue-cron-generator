@@ -3,16 +3,16 @@
     <el-radio v-model="type_" :label="label" @change="change">
       <span class="cell-symbol">{{ tag_ }}</span>
       {{ $t('common.every') }}{{ targetTimeUnit }}
-      <el-input-number v-model="startDate" :precision="0" :min="startDateConfig.min" :step="startDateConfig.step" :max="startDateConfig.max" :size="size" :disabled="type_ !== label"/>
+      <el-input-number v-model="startDate" :precision="0" :min="startDateConfig.min" :step="startDateConfig.step" :max="startDateConfig.max" :size="size" :disabled="type_ !== label" />
       {{ timeUnit }}{{ $t('common.nearest') }}{{ $t('custom.workDay') }}
     </el-radio>
   </div>
 </template>
 
 <script>
-import { WORK_DAY } from '../../../constant/filed'
-import watchValue from '../../../mixins/watchValue'
-import { isNumber } from '../../../util/tools'
+import { WORK_DAY } from '@/constant/filed'
+import watchValue from '@/mixins/watchValue'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

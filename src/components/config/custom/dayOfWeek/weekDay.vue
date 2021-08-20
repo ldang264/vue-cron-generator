@@ -3,7 +3,7 @@
     <el-radio v-model="type_" :label="label" @change="change">
       <span class="cell-symbol">{{ tag_ }}</span>
       {{ $t('common.current') }}{{ targetTimeUnit }}{{ $t('common.nth') }}
-      <el-input-number v-model="nth" :precision="0" :size="size" :min="1" :step="1" :max="5" :disabled="type_ !== label"/>
+      <el-input-number v-model="nth" :precision="0" :size="size" :min="1" :step="1" :max="5" :disabled="type_ !== label" />
       {{ $t('common.index') }}
       <el-select
         v-model="weekDayNum"
@@ -11,21 +11,23 @@
         :placeholder="$t('common.placeholder')"
         :disabled="type_ !== label"
         style="width: 100px;"
-        filterable>
+        filterable
+      >
         <el-option
           v-for="item in nums"
           :key="item.value"
           :label="item.label"
-          :value="item.value"/>
+          :value="item.value"
+        />
       </el-select>
     </el-radio>
   </div>
 </template>
 
 <script>
-import watchValue from '../../../../mixins/watchValue'
-import { WEEK_DAY } from '../../../../constant/filed'
-import { isNumber } from '../../../../util/tools'
+import watchValue from '@/mixins/watchValue'
+import { WEEK_DAY } from '@/constant/filed'
+import { isNumber } from '@/util/tools'
 
 export default {
   mixins: [watchValue],

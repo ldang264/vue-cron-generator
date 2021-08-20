@@ -7,7 +7,8 @@
       :time-unit="timeUnit"
       :symbol="symbol"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <period
       ref="periods"
       :type="type_"
@@ -17,7 +18,8 @@
       :start-config="startConfig"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <range
       ref="ranges"
       :type="type_"
@@ -27,7 +29,8 @@
       :lower-config="lowerConfig"
       :upper-config="upperConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <fixed
       ref="fixeds"
       :type="type_"
@@ -36,7 +39,8 @@
       :time-unit="timeUnit"
       :nums="nums"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
   </el-row>
 </template>
 
@@ -45,8 +49,8 @@ import Every from '../config/common/every'
 import Period from '../config/common/period'
 import Range from '../config/common/range'
 import Fixed from '../config/common/fixed'
-import { BASE_SYMBOL, EVERY } from '../../constant/filed'
-import watchTime from '../../mixins/watchTime'
+import { BASE_SYMBOL, EVERY } from '@/constant/filed'
+import watchTime from '@/mixins/watchTime'
 
 // 24 hours
 const LENGTH = 24, LOWER_LIMIT = 0, STEP = 1

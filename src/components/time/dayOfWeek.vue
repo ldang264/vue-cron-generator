@@ -7,7 +7,8 @@
       :time-unit="timeUnit"
       :symbol="symbol"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <period
       ref="periods"
       :type="type_"
@@ -18,7 +19,8 @@
       :start-config="startConfig"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <range
       ref="ranges"
       :type="type_"
@@ -27,7 +29,8 @@
       :size="size"
       :time-unit="timeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <fixed
       ref="fixeds"
       :type="type_"
@@ -35,13 +38,15 @@
       :nums="nums"
       :size="size"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <unfixed
       ref="unfixeds"
       :type="type_"
       :tag="tag_"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <last
       ref="lasts"
       :type="type_"
@@ -51,7 +56,8 @@
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <week-day
       ref="weekDays"
       :type="type_"
@@ -61,7 +67,8 @@
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
   </el-row>
 </template>
 
@@ -69,13 +76,13 @@
 import Every from '../config/common/every'
 import Fixed from '../config/common/fixed'
 import Unfixed from '../config/custom/unfixed'
-import { DAY_OF_WEEK_SYMBOL, DAYS_OF_WEEK, UNFIXED } from '../../constant/filed'
+import { DAY_OF_WEEK_SYMBOL, DAYS_OF_WEEK, UNFIXED } from '@/constant/filed'
 import Period from '../config/custom/dayOfWeek/period'
 import Range from '../config/custom/dayOfWeek/range'
 import Last from '../config/custom/dayOfWeek/last'
 import WeekDay from '../config/custom/dayOfWeek/weekDay'
-import watchTime from '../../mixins/watchTime'
-import { loadArray } from '../../translate'
+import watchTime from '@/mixins/watchTime'
+import { getLocale } from '@/util/tools'
 
 // 31 days
 const LENGTH = 7, LOWER_LIMIT = 1, STEP = 1
@@ -141,8 +148,8 @@ export default {
   methods: {
     // 7 days like [ {label: 'Sunday', value: 1}...{label: 'Saturday', value: 7} ]
     initNums() {
-      loadArray().then(array => {
-        this.nums = array.daysOfWeek
+      import('@/translate/dict.js').then(array => {
+        this.nums = array['daysOfWeek_' + getLocale()]
       })
     },
     // change type

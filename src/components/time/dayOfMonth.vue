@@ -7,7 +7,8 @@
       :time-unit="timeUnit"
       :symbol="symbol"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <period
       ref="periods"
       :type="type_"
@@ -17,7 +18,8 @@
       :start-config="startConfig"
       :cycle-config="cycleConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <range
       ref="ranges"
       :type="type_"
@@ -27,7 +29,8 @@
       :lower-config="lowerConfig"
       :upper-config="upperConfig"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <fixed
       ref="fixeds"
       :type="type_"
@@ -36,13 +39,15 @@
       :time-unit="timeUnit"
       :nums="nums"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <unfixed
       ref="unfixeds"
       :type="type_"
       :tag="tag_"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <last
       ref="lasts"
       :type="type_"
@@ -52,7 +57,8 @@
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <work-day
       ref="workDays"
       :type="type_"
@@ -62,7 +68,8 @@
       :time-unit="timeUnit"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
     <last-work-day
       ref="lastWorkDays"
       :type="type_"
@@ -70,7 +77,8 @@
       :size="size"
       :target-time-unit="targetTimeUnit"
       @type-changed="changeType"
-      @tag-changed="changeTag"/>
+      @tag-changed="changeTag"
+    />
   </el-row>
 </template>
 
@@ -83,8 +91,8 @@ import Unfixed from '../config/custom/unfixed'
 import WorkDay from '../config/custom/workDay'
 import Last from '../config/custom/last'
 import LastWorkDay from '../config/custom/lastWorkDay'
-import { DAY_OF_MONTH_SYMBOL, EVERY } from '../../constant/filed'
-import watchTime from '../../mixins/watchTime'
+import { DAY_OF_MONTH_SYMBOL, EVERY } from '@/constant/filed'
+import watchTime from '@/mixins/watchTime'
 
 // 31 days
 const LENGTH = 31, LOWER_LIMIT = 1, STEP = 1
