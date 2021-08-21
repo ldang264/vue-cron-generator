@@ -1,7 +1,7 @@
 {
   "name": "vue-cron-generator",
   "description": "a project using vue,element-ui to generate cron expression",
-  "version": "0.2.0-SNAPSHOT",
+  "version": "0.2.0",
   "author": "ldang264 <820704815@qq.com>",
   "license": "MIT",
   "private": false,
