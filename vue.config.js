@@ -1,4 +1,4 @@
-const port = process.env.port || process.env.npm_config_port || 80 // dev port
+const port = process.env.port || process.env.npm_config_port || 10000 // dev port
 module.exports = {
   publicPath: './',
   lintOnSave: true,
@@ -12,7 +12,7 @@ module.exports = {
     },
     proxy: {
       '/api': {
-        target: `http://106.14.246.234:5210`,
+        target: `http://127.0.0.1:5210`,
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/api'
