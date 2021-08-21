@@ -1,4 +1,4 @@
-import { CUR_YEAR, UPPER_LIMIT_YEAR } from '../constant/filed'
+import { CUR_YEAR, UPPER_LIMIT_YEAR } from '@/constant/filed'
 
 export default {
   common: {
@@ -86,6 +86,7 @@ export default {
     nthError: '天数格式不符'
   },
   app: {
-    title: '基于Vue&Element-ui实现的Cron表达式生成器'
+    title: '基于Vue&Element-ui实现的Cron表达式生成器',
+    next10FireTimes: '最近10次执行时刻'
   }
 }

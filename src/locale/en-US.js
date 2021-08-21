@@ -1,4 +1,4 @@
-import { CUR_YEAR, UPPER_LIMIT_YEAR } from '../constant/filed'
+import { CUR_YEAR, UPPER_LIMIT_YEAR } from '@/constant/filed'
 
 export default {
   common: {
@@ -86,6 +86,7 @@ export default {
     nthError: 'The Day in Week is Error'
   },
   app: {
-    title: 'Cron Generator Implemented by Vue.js and Element-ui'
+    title: 'Cron Generator Implemented by Vue.js and Element-ui',
+    next10FireTimes: 'The 10 fired times recently'
   }
 }

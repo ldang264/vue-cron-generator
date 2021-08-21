@@ -40,7 +40,7 @@ const messages = {
 
   i18n = new VueI18n({
   // set locale
-  // options: en | zh
+  // options: 'en_US' | 'zh_CN'
     locale: getLocale(),
     // set locale messages
     messages

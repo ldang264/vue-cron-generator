@@ -31,7 +31,6 @@
     "crontab"
   ],
   "dependencies": {
-    "axios": "0.21.1",
     "core-js": "3.6.5",
     "element-ui": "2.13.2",
     "vue": "2.6.11",
@@ -48,6 +47,7 @@
     "@vue/cli-plugin-unit-jest": "4.4.4",
     "@vue/cli-service": "4.4.4",
     "@vue/test-utils": "1.0.0-beta.29",
+    "axios": "0.21.1",
     "babel-eslint": "10.1.0",
     "babel-plugin-dynamic-import-node": "2.3.3",
     "eslint": "6.7.2",

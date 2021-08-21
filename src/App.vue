@@ -16,14 +16,14 @@
         </el-select>
       </el-col>
     </el-row>
-    <el-row style="margin-top: 20px">
-      <el-col :span="6" :offset="5">
+    <el-row style="margin-top: 10px">
+      <el-col :span="6" :offset="12">
         <el-card>
           <div slot="header">
-            <span>近十次执行时刻</span>
+            <span>{{ $t('app.next10FireTimes') }}</span>
           </div>
-          <div v-for="o in 4" :key="o">
-            {{ '列表内容 ' + o }}
+          <div v-for="o in next10FireTimes" :key="o">
+            {{ o }}
           </div>
         </el-card>
       </el-col>
@@ -49,22 +49,43 @@ export default {
         'mini',
         'small',
         'medium'
-      ]
+      ],
+      next10FireTimes: []
     }
   },
   methods: {
     change(cron) {
       this.cron = cron
-      axios.post('http://106.14.246.234:5210/api/sys/login', {
-        userName: 'attemper',
-        password: '123'
-      })
-        .then(function(response) {
-          console.log(response)
+      this.next10FireTimes = ['Loading......']
+      setTimeout(() => {
+        axios.post('/api/sys/login/encoded', {
+          userName: 'attemper',
+          password: 'vKWcAj+tOkJsHegC3HGbich0VuQ2+Y4iUGHP8/7kSHs='
         })
-        .catch(function(error) {
-          console.log(error)
-        })
+          .then(res => {
+            axios.post('/api/dispatch/job/trigger/test/cron', {
+              triggerName: 'vue-cron-generator',
+              expression: cron
+            }, {
+              headers: {
+                'token': res.data.result.token
+              }
+            })
+              .then(ir => {
+                if (!ir.data.result) {
+                  this.next10FireTimes = [ir.data.msg]
+                } else {
+                  this.next10FireTimes = ir.data.result
+                }
+              })
+              .catch(ie => {
+                this.next10FireTimes = [ie]
+              })
+          })
+          .catch(err => {
+            this.next10FireTimes = [err]
+          })
+      }, 100)
     },
     reset(cron) {
       this.change(DEFAULT_CRON_EXPRESSION)
