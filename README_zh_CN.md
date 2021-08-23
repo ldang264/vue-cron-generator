@@ -1,6 +1,6 @@
 # vue-cron-generator
 
-> 一个基于Vue&Element-UI构建的在线Cron表达式生成器 [English](./README.md) [在线demo](https://ldang264.github.io/vue-cron-generator/dist/index.html)  
+> 一个基于Vue&Element-UI构建的在线Cron表达式生成器 [English](./README.md) [在线demo](http://106.14.246.234:8090/)  
 
 **使用的项目**
 >👉 Attemper: 分布式多租户的支持流程编排的任务调度平台(用之作为cron表达式生成器) 👈
