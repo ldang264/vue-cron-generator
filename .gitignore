@@ -9,5 +9,6 @@ yarn-error.log
 *.ntvs*
 *.njsproj
 *.sln
+dist/
 
 package-lock.json
