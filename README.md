@@ -20,27 +20,27 @@ npm install vue-cron-generator
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import elementEnLocale from 'element-ui/lib/locale/lang/en'
-import elementZhCNLocale from 'element-ui/lib/locale/lang/zh-CN'
-import enUSLocale from './en-US'
-import zhCNLocale from './zh-CN'
-import { getLocale } from '../util/tools'
+import elementZhLocale from 'element-ui/lib/locale/lang/zh-CN'
+import cronEnLocale from 'vue-cron-generator/src/locale/en'
+import cronZhLocale from 'vue-cron-generator/src/locale/zh'
+import { getLocale } from 'vue-cron-generator/src/util/tools'
 
 Vue.use(VueI18n)
 
 const messages = {
-    en_US: {
-      ...enUSLocale,
+    en: {
+      ...enLocale,
       ...elementEnLocale
     },
-    zh_CN: {
-      ...zhCNLocale,
-      ...elementZhCNLocale
+    zh: {
+      ...zhLocale,
+      ...elementZhLocale
     }
   },
 
   i18n = new VueI18n({
   // set locale
-  // options: 'en_US' | 'zh_CN'
+  // options: 'en' | 'zh'
     locale: getLocale(),
     // set locale messages
     messages

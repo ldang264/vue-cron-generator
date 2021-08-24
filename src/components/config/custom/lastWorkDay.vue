@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { LAST_WORK_DAY } from '@/constant/filed'
-import watchValue from '@/mixins/watchValue'
+import { LAST_WORK_DAY } from '../../../constant/filed'
+import watchValue from '../../../mixins/watchValue'
 
 export default {
   mixins: [watchValue],

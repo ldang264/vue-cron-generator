@@ -1,4 +1,4 @@
-export const cases_zh_CN = [
+export const cases_zh = [
     {
       label: '每秒',
       value: '* * * * * ?'
@@ -68,7 +68,7 @@ export const cases_zh_CN = [
       value: '0 0 12 * JAN,JUN ?'
     }
   ],
-  daysOfWeek_zh_CN = [
+  daysOfWeek_zh = [
     {
       label: '星期天',
       value: 1
@@ -98,7 +98,7 @@ export const cases_zh_CN = [
       value: 7
     }
   ],
-  cases_en_US = [
+  cases_en = [
     {
       label: 'Every second',
       value: '* * * * * ?'
@@ -168,7 +168,7 @@ export const cases_zh_CN = [
       value: '0 0 12 * JAN,JUN ?'
     }
   ],
-  daysOfWeek_en_US = [
+  daysOfWeek_en = [
     {
       label: 'Sunday',
       value: 1

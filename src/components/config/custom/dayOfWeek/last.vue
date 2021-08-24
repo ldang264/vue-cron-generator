@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import { LAST } from '@/constant/filed'
-import watchValue from '@/mixins/watchValue'
-import { isNumber } from '@/util/tools'
+import { LAST } from '../../../../constant/filed'
+import watchValue from '../../../../mixins/watchValue'
+import { isNumber } from '../../../../util/tools'
 
 export default {
   mixins: [watchValue],

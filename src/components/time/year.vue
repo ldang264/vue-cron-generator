@@ -57,8 +57,8 @@ import Period from '../config/common/period'
 import Range from '../config/common/range'
 import Fixed from '../config/common/fixed'
 import Empty from '../config/custom/year/empty'
-import { BASE_SYMBOL, CUR_YEAR, EMPTY, UPPER_LIMIT_YEAR } from '@/constant/filed'
-import watchTime from '@/mixins/watchTime'
+import { BASE_SYMBOL, CUR_YEAR, EMPTY, UPPER_LIMIT_YEAR } from '../../constant/filed'
+import watchTime from '../../mixins/watchTime'
 
 // 2099 years
 const LOWER_LIMIT = CUR_YEAR, LENGTH = UPPER_LIMIT_YEAR, STEP = 1

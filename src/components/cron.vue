@@ -129,7 +129,7 @@ import DayOfMonth from './time/dayOfMonth'
 import Month from './time/month'
 import Year from './time/year'
 import DayOfWeek from './time/dayOfWeek'
-import { getLocale } from '@/util/tools'
+import { getLocale } from '../util/tools'
 
 import {
   EMPTY,
@@ -139,7 +139,7 @@ import {
   DAY_OF_MONTH_SYMBOL,
   DAY_OF_WEEK_SYMBOL,
   DEFAULT_CRON_EXPRESSION
-} from '@/constant/filed'
+} from '../constant/filed'
 
 export default {
   name: 'Cron',
@@ -273,7 +273,7 @@ export default {
       }
     },
     loadConst() {
-      import('@/translate/dict.js').then(array => {
+      import('../translate/dict.js').then(array => {
         this.bakCases = this.cases = array['cases_' + getLocale()]
       })
     }

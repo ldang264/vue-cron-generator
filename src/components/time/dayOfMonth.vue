@@ -91,8 +91,8 @@ import Unfixed from '../config/custom/unfixed'
 import WorkDay from '../config/custom/workDay'
 import Last from '../config/custom/last'
 import LastWorkDay from '../config/custom/lastWorkDay'
-import { DAY_OF_MONTH_SYMBOL, EVERY } from '@/constant/filed'
-import watchTime from '@/mixins/watchTime'
+import { DAY_OF_MONTH_SYMBOL, EVERY } from '../../constant/filed'
+import watchTime from '../../mixins/watchTime'
 
 // 31 days
 const LENGTH = 31, LOWER_LIMIT = 1, STEP = 1

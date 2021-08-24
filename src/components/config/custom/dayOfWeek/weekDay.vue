@@ -25,9 +25,9 @@
 </template>
 
 <script>
-import watchValue from '@/mixins/watchValue'
-import { WEEK_DAY } from '@/constant/filed'
-import { isNumber } from '@/util/tools'
+import watchValue from '../../../../mixins/watchValue'
+import { WEEK_DAY } from '../../../../constant/filed'
+import { isNumber } from '../../../../util/tools'
 
 export default {
   mixins: [watchValue],

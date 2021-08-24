@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import { EVERY, PERIOD } from '@/constant/filed'
-import watchValue from '@/mixins/watchValue'
-import { isNumber } from '@/util/tools'
+import { EVERY, PERIOD } from '../../../constant/filed'
+import watchValue from '../../../mixins/watchValue'
+import { isNumber } from '../../../util/tools'
 
 export default {
   mixins: [watchValue],

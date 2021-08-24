@@ -1,4 +1,4 @@
-import { NUMBER } from '@/constant/reg'
+import { NUMBER } from '../constant/reg'
 
 export const
   sortNum = (a, b) => {
@@ -8,7 +8,9 @@ export const
     return new RegExp(NUMBER).test(str)
   },
   getLocale = () => {
-    const lang = localStorage.getItem('locale') || sessionStorage.getItem('locale') || navigator.language,
+    const lang = localStorage.getItem('locale') || sessionStorage.getItem('locale') ||
+      localStorage.getItem('lang') || sessionStorage.getItem('lang') ||
+      localStorage.getItem('language') || sessionStorage.getItem('language') || navigator.language,
       index = lang.indexOf('-')
-    return lang.substring(0, index) + '_' + lang.substring(index + 1).toUpperCase()
+    return index <= 0 ? lang : lang.substring(0, index)
   }

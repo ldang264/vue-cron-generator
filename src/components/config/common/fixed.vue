@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import { sortNum } from '@/util/tools'
-import { FIXED } from '@/constant/filed'
-import watchValue from '@/mixins/watchValue'
-import { isNumber } from '@/util/tools'
+import { sortNum } from '../../../util/tools'
+import { FIXED } from '../../../constant/filed'
+import watchValue from '../../../mixins/watchValue'
+import { isNumber } from '../../../util/tools'
 
 export default {
   mixins: [watchValue],

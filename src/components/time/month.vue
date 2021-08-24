@@ -48,8 +48,8 @@ import Every from '../config/common/every'
 import Period from '../config/common/period'
 import Range from '../config/common/range'
 import Fixed from '../config/common/fixed'
-import { BASE_SYMBOL, EVERY, MONTHS } from '@/constant/filed'
-import watchTime from '@/mixins/watchTime'
+import { BASE_SYMBOL, EVERY, MONTHS } from '../../constant/filed'
+import watchTime from '../../mixins/watchTime'
 
 // 1 months
 const LENGTH = 12, LOWER_LIMIT = 1, STEP = 1

@@ -76,13 +76,13 @@
 import Every from '../config/common/every'
 import Fixed from '../config/common/fixed'
 import Unfixed from '../config/custom/unfixed'
-import { DAY_OF_WEEK_SYMBOL, DAYS_OF_WEEK, UNFIXED } from '@/constant/filed'
+import { DAY_OF_WEEK_SYMBOL, DAYS_OF_WEEK, UNFIXED } from '../../constant/filed'
 import Period from '../config/custom/dayOfWeek/period'
 import Range from '../config/custom/dayOfWeek/range'
 import Last from '../config/custom/dayOfWeek/last'
 import WeekDay from '../config/custom/dayOfWeek/weekDay'
-import watchTime from '@/mixins/watchTime'
-import { getLocale } from '@/util/tools'
+import watchTime from '../../mixins/watchTime'
+import { getLocale } from '../../util/tools'
 
 // 31 days
 const LENGTH = 7, LOWER_LIMIT = 1, STEP = 1
@@ -148,7 +148,7 @@ export default {
   methods: {
     // 7 days like [ {label: 'Sunday', value: 1}...{label: 'Saturday', value: 7} ]
     initNums() {
-      import('@/translate/dict.js').then(array => {
+      import('../../translate/dict.js').then(array => {
         this.nums = array['daysOfWeek_' + getLocale()]
       })
     },

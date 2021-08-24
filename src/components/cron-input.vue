@@ -11,7 +11,7 @@
 
 <script>
 import Cron from './cron'
-import { DEFAULT_CRON_EXPRESSION } from '@/constant/filed'
+import { DEFAULT_CRON_EXPRESSION } from '../constant/filed'
 export default {
   name: 'CronInput',
   components: {

@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import { RANGE } from '@/constant/filed'
-import watchValue from '@/mixins/watchValue'
-import { isNumber } from '@/util/tools'
+import { RANGE } from '../../../constant/filed'
+import watchValue from '../../../mixins/watchValue'
+import { isNumber } from '../../../util/tools'
 
 export default {
   mixins: [watchValue],

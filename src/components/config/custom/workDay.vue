@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import { WORK_DAY } from '@/constant/filed'
-import watchValue from '@/mixins/watchValue'
-import { isNumber } from '@/util/tools'
+import { WORK_DAY } from '../../../constant/filed'
+import watchValue from '../../../mixins/watchValue'
+import { isNumber } from '../../../util/tools'
 
 export default {
   mixins: [watchValue],
