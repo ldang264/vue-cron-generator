@@ -52,11 +52,11 @@ import Vue from 'vue'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import 'vue-cron-generator/src/styles/global.less'
+import 'vue-cron-generator/src/styles/global.css'
 
 import App from './App'
 
-import i18n from './lang' // Internationalization
+import i18n from './lang'
 
 Vue.use(Element, {
   size: localStorage.getItem('size') || 'small', // set element-ui default size
@@ -109,9 +109,9 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

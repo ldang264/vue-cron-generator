@@ -1,7 +1,7 @@
 {
   "name": "vue-cron-generator",
   "description": "a project using vue,element-ui to generate cron expression",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "ldang264 <820704815@qq.com>",
   "license": "MIT",
   "private": false,
@@ -52,8 +52,6 @@
     "babel-plugin-dynamic-import-node": "2.3.3",
     "eslint": "6.7.2",
     "eslint-plugin-vue": "6.2.2",
-    "less": "2.7.3",
-    "less-loader": "4.1.0",
     "lint-staged": "8.1.5",
     "vue-template-compiler": "2.6.11"
   }
